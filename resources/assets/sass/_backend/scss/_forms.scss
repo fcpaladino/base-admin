@@ -1,0 +1,149 @@
+fieldset{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #eee;
+  margin-bottom: 20px;
+}
+
+label{
+  font-weight: normal;
+  color: #585f69;
+}
+
+
+textarea{
+  &.no-resize {
+    resize: none
+  }
+}
+
+.border-dashed{
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #eee;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  box-shadow: none;
+  border-color: #dbd9d9;
+  color: #515d6e;
+  transition: border-color ease-in-out .15s;
+  border-radius: 3px;
+
+
+  &:focus {
+    border-color: #cecccc !important;
+    box-shadow: none;
+  }
+  &::-moz-placeholder {
+    color: #bbb;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color: #bbb;
+  }
+  &::-webkit-input-placeholder {
+    color: #bbb;
+  }
+
+  &:not(select) {
+    appearance: none;
+  }
+
+  &:disabled{
+    background: #f4f5f5;
+  }
+
+}
+
+.form-group {
+
+  .help-block{
+    color: #989fa9;
+  }
+
+  &.has-success {
+    label {
+      color: $green;
+    }
+    .form-control {
+      border-color: $green !important;
+      box-shadow: none;
+    }
+  }
+
+  &.has-warning {
+    label {
+      color: $yellow;
+    }
+    .form-control {
+      border-color: $yellow !important;
+      box-shadow: none;
+    }
+  }
+
+  &.has-error {
+    label {
+      color: $red;
+    }
+    .form-control {
+      border-color: $red !important;
+      box-shadow: none;
+    }
+    .help-block{
+      color: $red !important;
+    }
+    .glyphicon{
+      color: $red !important;
+    }
+
+  }
+}
+
+/* Input group */
+.input-group {
+  .input-group-addon {
+    @include border-radius-same($input-radius);
+    border-color: $gray;
+    background-color: #fff;
+  }
+}
+/* button groups */
+.btn-group-vertical {
+  .btn {
+    &.btn-flat:first-of-type, &.btn-flat:last-of-type {
+      @include border-radius-same(0);
+    }
+  }
+}
+
+
+
+#file{
+  display: none;
+
+  &.mostrar{
+    display: block;
+  }
+
+  .btnFile {
+    position: relative;
+    overflow: hidden;
+  }
+  .btnFile input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+}

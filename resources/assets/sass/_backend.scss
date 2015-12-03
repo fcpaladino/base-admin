@@ -1,0 +1,75 @@
+/* path img */
+$path-img: '../../../images/admin/';
+
+$fa-font-path:        "../../fonts" !default;
+
+// Bootstrap
+//@import "../../../vendor/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+// font-awesome
+//@import "../../../vendor/bower_components/font-awesome/scss/font-awesome";
+
+// Font
+//@import url(http://fonts.useso.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
+
+// SweetAlert
+//@import "../../../vendor/bower_components/sweetalert/dev/sweetalert";
+
+
+// Variaveis
+$azul-claro: #43a8eb;
+
+$fundo-checkbox-checked: $azul-claro;
+$color-checkbox-checked: #ffffff;
+
+
+/*
+ * Admin
+ */
+@import "backend/variables";
+@import "backend/core";
+@import "backend/mixins";
+@import "backend/miscellaneous";
+
+@import "backend/header";
+@import "backend/sidebar";
+@import "backend/sidebar-mini";
+@import "backend/control-sidebar";
+
+@import "backend/navs";
+@import "backend/dropdown";
+
+@import "backend/forms";
+@import "backend/checkbox";
+@import "backend/radio";
+@import "backend/buttons";
+
+@import "backend/datatable";
+@import "backend/table";
+
+@import "backend/boxes";
+
+@import "backend/alerts";
+
+@import "backend/print";
+
+// page login
+@import "backend/login";
+
+// page error
+@import "backend/errors";
+
+// Theme
+@import "backend/skin/default";
+
+
+// Includes
+//@import "backend/includes/select";
+//@import "backend/includes/datepicker";
+//@import "backend/includes/datetimepicker";
+//@import "backend/includes/timepicker";
+//@import "backend/includes/maxlength";
+//@import "backend/includes/tags";
+//@import "backend/includes/dropzone";
+

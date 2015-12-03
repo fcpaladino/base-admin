@@ -1,0 +1,23 @@
+.DTTT_Print{
+
+  .content-wrapper,
+  .right-side,
+  .main-footer{
+    margin-left: 0;
+  }
+
+  .dataTables_length,
+  .dataTables_filter,
+  .dataTables_info,
+  .dataTables_paginate,
+  .dropdown_acao_grid{
+    display: none !important;
+  }
+
+  .wrapper,
+  .main-sidebar,
+  .left-side{
+    background: $body-bg !important;
+  }
+
+}

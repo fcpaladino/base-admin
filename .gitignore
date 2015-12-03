@@ -1,0 +1,14 @@
+/vendor
+/node_modules
+Homestead.yaml
+/bootstrap/compiled.php
+.env.php
+.env
+.idea/
+/public/build
+/public/css
+/public/files
+/public/fonts
+/public/images
+/public/js
+/public/uploads

@@ -1,0 +1,72 @@
+/*
+ * Page: Login & Register
+ * ----------------------
+ */
+
+.login-logo,
+.register-logo {
+  margin-bottom: 0px;
+  border-bottom: 1px solid #eeeeee;
+  color: #616161;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  padding:0 0 30px 0;
+
+}
+
+.login-page,
+.register-page {
+  background: url(#{$path-img}pixel.png) repeat;
+
+  .form-control{
+    background-color: #fff;
+    height: 43px;
+    color: #919191;
+    border: 1px solid #f3f2f2;
+  }
+
+  .form-control-feedback{
+    top: 6px;
+    color: #919191 !important;
+  }
+
+}
+
+.recuperar-senha{
+  text-align: center;
+  padding-top: 25px;
+}
+
+.login-box,
+.register-box {
+  width: 360px;
+  margin: 7% auto;
+  @media (max-width: $screen-sm) {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+
+.login-box-body,
+.register-box-body {
+  background: #fff;
+  border: 1px solid #eeeeee;
+  padding: 20px;
+  color: #444;
+  border-top: 0;
+  color: #666;
+  .form-control-feedback {
+    color: #777;
+  }
+  .checkbox-input{
+    margin-top: 7px;
+  }
+}
+.login-box-msg,
+.register-box-msg {
+  margin: 0;
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
+

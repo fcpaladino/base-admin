@@ -1,0 +1,64 @@
+// Bootstrap
+$bootstrap-sass-asset-helper: true;
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+// SweetAlert
+@import "../../../vendor/bower_components/sweetalert/dev/sweetalert";
+
+
+// Variaveis Globais
+$path-img: '../../../images/admin/';
+
+
+
+/*
+ * ------------------------------------
+ * Core
+ * ------------------------------------
+ */
+@import "backend/variables";
+@import "backend/core";
+@import "backend/_fonts";
+
+
+
+/*
+ * ------------------------------------
+ * Includes
+ * ------------------------------------
+ */
+@import "backend/includes/mixins";
+@import "backend/includes/header";
+@import "backend/includes/sidebar";
+@import "backend/includes/sidebar-mini";
+@import "backend/includes/control-sidebar";
+
+@import "backend/includes/navs";
+@import "backend/includes/dropdown";
+
+@import "backend/includes/forms";
+@import "backend/includes/buttons";
+@import "backend/includes/checkbox";
+
+
+/*
+ * ------------------------------------
+ * Plugins
+ * ------------------------------------
+ */
+@import "backend/plugins/datatable";
+@import "backend/plugins/datepicker";
+@import "backend/plugins/datetimepicker";
+@import "backend/plugins/dropzone";
+@import "backend/plugins/select";
+@import "backend/plugins/tags";
+@import "backend/plugins/timepicker";
+
+
+/*
+ * ------------------------------------
+ * Pages
+ * ------------------------------------
+ */
+@import "backend/pages/login";

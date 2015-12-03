@@ -1,4 +1,4 @@
-## WEBEE BASE DEFAULT
+## BASE ADMIN
 
 ## Sempre pesquise na documentação oficial do Laravel
 Documentação do projeto [Laravel website](http://laravel.com/docs).
@@ -6,7 +6,7 @@ Documentação do projeto [Laravel website](http://laravel.com/docs).
 
 ## Baixe uma cópia do repositório
 
-`git clone git@git.webee.local:WEBEE/webee.base.default.git`
+`git clone git@github.com:filipepaladino/base-admin.git`
 
 > Após baixar a cópia, apague a pasta .git que está dentro do projeto
 

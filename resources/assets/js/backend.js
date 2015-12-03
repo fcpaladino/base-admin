@@ -136,4 +136,185 @@ $(document).ready(function() {
         language: 'pt-BR'
     });
 
+
+
+
+    /*
+     * ------------------------------------------------------
+     *  Select
+     * ------------------------------------------------------
+     */
+    if($().select2){
+        $('.select, select[name="dataTable_length"]').select2();
+    }
+
+
+
+
+    /*
+     * ------------------------------------------------------
+     *  Maxlength
+     * ------------------------------------------------------
+     */
+    if($().maxlength){
+        $('input[maxlength], textarea[maxlength]').maxlength({
+            limitReachedClass: 'label label-danger',
+            alwaysShow: true,
+            threshold: 5
+        });
+    }
+
+
+
+
+    /*
+     * ------------------------------------------------------
+     *  Tags
+     * ------------------------------------------------------
+     */
+    if($().tagsInput){
+        $(".tags").each(function(){
+            $(this).tagsInput({
+                width: 'auto'
+            });
+        });
+    }
+
+
+
+
+    /*
+     * ------------------------------------------------------
+     *  Editor
+     * ------------------------------------------------------
+     */
+    if($().CKEDITOR){
+
+        CKEDITOR.basePath = $('meta[name=base]').attr('content') + "/js/plugins/ckeditor/";
+        CKEDITOR.config.contentsCss = CKEDITOR.basePath+"contents.css";
+
+        var editors = $('textarea.editor');
+
+        if(editors.length > 0 && typeof CKEDITOR !== "undefined") {
+            $.each(editors, function(){
+                var $this    = $(this),
+                    $toolbar = [];
+
+                if(!$this.attr('id')) { $this.attr('id', 'txtRand_' + $.guid++); }
+
+                if($this.hasClass('simple')){
+
+                    CKEDITOR.replace($this.attr('id'), {
+                        toolbar: [
+                            { name: "clipboard", items: [ "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo" ] }
+                            ,{ name: "basicstyles", items: [ "Bold", "Italic", "Underline", "Strike", "RemoveFormat" ] }
+                            ,{ name: "paragraph", items: [ "NumberedList", "BulletedList", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] }
+                            ,{ name: "links", items: [ "Link", "Unlink" ]  }
+                        ]
+                    });
+
+                }else{
+
+                    CKEDITOR.replace($this.attr('id'), {
+                        toolbar: [
+                            { name: "document", items: [ "Source" ] }
+                            ,{ name: "clipboard", items: [ "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo" ] }
+                            ,{ name: "basicstyles", items: [ "Bold", "Italic", "Underline", "Strike", "RemoveFormat" ] }
+                            ,{ name: "paragraph", items: [ "NumberedList", "BulletedList", "Blockquote", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] }
+                            ,{ name: "links", items: [ "Link", "Unlink" ]  }
+                            ,{ name: "insert", items: [ "Image", "Table" ]}
+                            ,{ name: "style", items: [ "FontSize", "TextColor", "BGColor" ] }
+                        ]
+                    });
+
+                }
+
+            });
+        }
+
+    }
+
+
+
+
+    /*
+     * ------------------------------------------------------
+     *  Dropzone
+     * ------------------------------------------------------
+     */
+    if($().dropzone) {
+        var lstDropZone = $('.dropzone');
+        lstDropZone.each(function (){
+            var $this = $(this);
+            if(!$this.attr('id')) { $this.attr('id', 'dzRand_' + $.guid++); }
+            var name = !$this.data('name') ? 'arquivo_upload' : $this.data('name');
+            var size = !$this.data('size') ? 10 : parseInt($this.data('size'));
+            var url = $this.data('url');
+            var placeholdinput = $this.data('placeholdinput');
+            var nameinput = $this.data('nameinput');
+
+            $this.dropzone({
+                paramName: name,
+                maxFilesize: size,
+                addRemoveLinks: true,
+                url: url,
+                maxFiles: 20,
+                parallelUploads: 20,
+                dictCancelUpload: '',
+                dictRemoveFile: '<i class="fa fa-times"></i>',
+                uploadMultiple: true,
+                autoProcessQueue : false,
+                thumbnailWidth: 165,
+                thumbnailHeight: 165,
+                init: function() {
+
+                    var myDropzone = this; // closure
+
+                    $(document).on("click", '#submit-dropzone', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        myDropzone.processQueue();
+                    });
+
+                    this.on("addedfile", function (file) {
+                        var mini_form = '<div class="dz-mini-form"><input type="text" name="legenda" placeholder="Legenda" class="form-control col-xs-12" /><br><input type="number" name="ordem" placeholder="Ordem" class="form-control col-xs-12" /></div>';
+
+                        $(file.previewElement).append(mini_form);
+                        $(file.previewElement).find('.dz-remove').attr('tabindex', '-1');
+                        $(file.previewElement).closest('.dropzone').find('.dz-preview').find('input').first().focus();
+                    });
+                    this.on("sendingmultiple", function (file, xhr, formData) {
+                        jQuery(file).each(function(i, f){
+
+                            $.each( $(f.previewElement).find('input') ,function(){
+                                formData.append( $(this).attr('name')+'[]', $(f.previewElement).find('input[name="'+$(this).attr('name')+'"]').val() );
+                            });
+                        });
+                    });
+                    this.on("successmultiple", function (files, response) {
+                        var remove = $('.dz-remove');
+                        remove.html(remove.first().text());
+
+                        if(!response.url) {
+                            var redirect = $('#redirect').val();
+                            window.location.href = redirect;
+                        }
+                    });
+                    this.on("errormultiple", function (files, response) {
+                        var remove = $('.dz-remove');
+                        remove.html(remove.first().text());
+                    });
+                }
+            });
+        });
+    }
+
+
+
+
+
+
+
+
+
 });

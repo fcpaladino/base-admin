@@ -11,7 +11,6 @@ elixir(function (mix) {
 
     mix
         .sass([
-            //path.bower_components + "stab/sass/stab.scss",
             "frontend.scss"
         ], "public/css/frontend.css")
 

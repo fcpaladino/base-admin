@@ -19,12 +19,12 @@ class ConfiguracaoTabelaSeeder extends Seeder
             'descricao'         => '',
             'palavra_chave'     => '',
 
-            'smtp_servidor'         => 'mail.webee.com.br',
-            'smtp_porta'            => '587',
+            'smtp_servidor'         => '',
+            'smtp_porta'            => '',
             'smtp_seguranca'        => '',
-            'smtp_usuario'          => 'teste-site-desenvolvimento@webee.com.br',
+            'smtp_usuario'          => '',
             'smtp_email_resposta'   => '',
-            'smtp_senha'            => 'w3b33@!',
+            'smtp_senha'            => '',
 
             'social_facebook'   => '',
             'social_twitter'    => '',

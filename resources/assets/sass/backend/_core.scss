@@ -13,10 +13,10 @@
   width: 3px;
 }
 ::-webkit-scrollbar-thumb {
-  background: $light-blue;
+  background: $color-base;
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: $light-blue;
+  background: $color-base;
 }
 
 html,
@@ -53,7 +53,8 @@ body {
 }
 
 .layout-boxed {
-  background: url($boxed-layout-bg-image-path) repeat fixed;
+  //background: url($boxed-layout-bg-image-path) repeat fixed;
+  background: #fefefe;
 }
 
 /*
@@ -64,8 +65,7 @@ body {
 .right-side,
 .main-footer {
   //Using disposable variable to join statements with a comma
-  $transition-rule: $transition-speed $transition-fn,
-  margin $transition-speed $transition-fn;
+  $transition-rule: .3s ease-in-out, margin .3s ease-in-out;
   @include transition-transform($transition-rule);
   margin-left: $sidebar-width;
   z-index: 820;
@@ -117,7 +117,7 @@ body {
   .content-wrapper,
   .right-side {
     padding-top: 50px;
-    @media (max-width: $screen-header-collapse) {
+    @media (max-width: $screen-xs-max) {
       padding-top: 100px;
     }
   }

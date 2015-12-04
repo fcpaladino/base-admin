@@ -21,6 +21,14 @@
   font-family: "SourceSans";
   font-weight: 400;
 
+  border-color: $button-default-border;
+  color: $button-default-color;
+
+  &:hover, &:active, &:focus{
+    color: $button-default-color-active;
+    background-color: $button-default-bg-active;
+  }
+
   > i{
     padding: 5px 5px 0 0;
     font-size: 10px;
@@ -34,55 +42,37 @@
     display: none !important;
   }
 
-  &.gray{
-    border-color: #dbd9d9;
-    color: #a0aab2;
+
+
+  &.action{
+    border-color: $button-action-border;
+    color: $button-action-color;
 
     &:hover, &:active, &:focus{
-      color: #6a727b;
-      background: #fdfdfd;
-    }
-
-  }
-
-  &.blue{
-    border-color: #2196F3;
-    color: #2196F3;
-
-    &:hover, &:active, &:focus{
-      color: #fff;
-      background-color: #2196F3;
-    }
-
-  }
-
-  &.blue-light{
-    border-color: #00bcd4;
-    color: #00bcd4;
-
-    &:hover, &:active, &:focus{
-      color: #fff;
-      background-color: #00bcd4;
+      color: $button-action-color-active;
+      background-color: $button-action-bg-active;
     }
   }
 
-  &.red{
-    border-color: #F44336;
-    color: #F44336;
+
+  &.delete{
+    border-color: $button-delete-border;
+    color: $button-delete-color;
 
     &:hover, &:active, &:focus{
-      color: #fff;
-      background-color: #F44336;
+      color: $button-delete-color-active;
+      background-color: $button-delete-bg-active;
     }
   }
 
-  &.yellow{
-    border-color: #ffab40;
-    color: #ffab40;
+
+  &.update{
+    border-color: $button-update-border;
+    color: $button-update-color;
 
     &:hover, &:active, &:focus{
-      color: #fff;
-      background-color: #ffab40;
+      color: $button-update-color-active;
+      background-color: $button-update-bg-active;
     }
   }
 

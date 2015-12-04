@@ -251,14 +251,14 @@
 //Navbar
 .main-header {
   .navbar {
-    @include navbar-variant($light-blue, #fff);
+    @include navbar-variant($navbar-bg, #fff);
     .sidebar-toggle {
       color: #fff;
       &:hover {
-        background-color: darken($light-blue, 5%);
+        background-color: $navbar-bg-hover;
       }
     }
-    @media (max-width: $screen-header-collapse) {
+    @media (max-width: $screen-xs-max) {
       .dropdown-menu {
         li {
           &.divider {
@@ -267,7 +267,7 @@
           a {
             color: #fff;
             &:hover {
-              background: darken($light-blue, 5%);
+              background: $navbar-bg-hover;
             }
           }
         }
@@ -276,11 +276,11 @@
   }
   //Logo
   .logo {
-    @include logo-variant($light-blue);
+    @include logo-variant($navbar-bg);
   }
 
   li.user-header {
-    background-color: $light-blue;
+    background-color: $navbar-bg;
   }
 }
 
@@ -290,12 +290,12 @@
 }
 
 //Create the sidebar skin
-@include skin-light-sidebar($light-blue);
+@include skin-light-sidebar($navbar-bg);
 .main-footer {
   border-top-color: transparent;
 }
 
 
 .layout-top-nav .main-header > .logo {
-  @include logo-variant($light-blue);
+  @include logo-variant($navbar-bg);
 }

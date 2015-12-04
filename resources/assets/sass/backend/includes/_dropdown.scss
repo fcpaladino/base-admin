@@ -19,7 +19,7 @@
     margin-right: 10px;
   }
   > li > a:hover {
-    background-color: lighten($gray, 5%);
+    background-color: lighten(#eeeeee, 5%);
     color: #333;
   }
   > .divider {
@@ -168,7 +168,7 @@
   > .dropdown-menu > li .menu {
 
     > li.active a{
-      color: #43a8eb!important;
+      color: $color-base!important;
     }
 
     > li > a {
@@ -278,58 +278,6 @@
   // @include animation(flipInX .7s both);
 }
 
-/*
-$keyframes flipInX {
-  0% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    transition-timing-function: ease-in;
-    opacity: 0;
-  }
-
-  40% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    transition-timing-function: ease-in;
-  }
-
-  60% {
-    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    opacity: 1;
-  }
-
-  80% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-  }
-
-  100% {
-    transform: perspective(400px);
-  }
-}
-$-webkit-keyframes flipInX {
-  0% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    -webkit-transition-timing-function: ease-in;
-    opacity: 0;
-  }
-
-  40% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    -webkit-transition-timing-function: ease-in;
-  }
-
-  60% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
-    opacity: 1;
-  }
-
-  80% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
-  }
-
-  100% {
-    -webkit-transform: perspective(400px);
-  }
-}
-*/
 
 /* Fix dropdown menu in navbars */
 .navbar-custom-menu > .navbar-nav {

@@ -18,6 +18,20 @@ $(document).ready(function() {
      *  Ao digitar no campo de pesquisa
      * ------------------------------------------------------
      */
+    $(document).on('click', '.treeview a:first-child', function(){
+        var e               = $(this),
+            icon_last       = e.children('i:last-child');
+            icon_last.toggleClass('fa-angle-up').toggleClass('fa-angle-down');
+    });
+
+
+
+
+    /*
+     * ------------------------------------------------------
+     *  Ao digitar no campo de pesquisa
+     * ------------------------------------------------------
+     */
     $(".sidebar-form input").on("keyup", function(e)
     {
 
@@ -185,53 +199,91 @@ $(document).ready(function() {
 
     /*
      * ------------------------------------------------------
+     *  Mascaras
+     * ------------------------------------------------------
+     */
+    if( $.fn.mask )
+    {
+        $(".mascara-telefone").mask("(99) 9999-9999?9");
+        $(".mascara-cep").mask("99999-999");
+        $(".mascara-cpf").mask("999.999.999-99");
+    }
+    // Se o plugin foi carregado
+    if( $.fn.maskMoney )
+    {
+        $(".mascara-dinheiro").maskMoney({
+            thousands: '',
+            decimal  : ','
+        });
+    }
+
+    // Campo somente números
+    $(".mascara-numero").on("keyup", function(e)
+    {
+        var obj = $(this);
+        var qtd = obj.val();
+        var qtd_numeros = qtd.replace(/[^0-9]/g, "");
+
+        // Permite apenas numeros
+        if( !/^[0-9]+$/.test(qtd) )
+        {
+            obj.val(qtd_numeros);
+        }
+
+        if( e.keyCode == 38 || e.keyCode == 40 )
+        {
+            if( isNaN(qtd_numeros) || qtd_numeros <= 0 )
+            {
+                qtd = 1;
+            }
+
+            if( e.keyCode == 38 )
+            {
+                qtd++
+            }
+            else if( e.keyCode == 40 )
+            {
+                qtd--;
+                qtd = ( qtd > 0 ) ? qtd : 1;
+            }
+
+            obj.val(qtd);
+        }
+    });
+
+
+
+    /*
+     * ------------------------------------------------------
      *  Editor
      * ------------------------------------------------------
      */
-    if($().CKEDITOR){
+    CKEDITOR.basePath = $('meta[name=base]').attr('content') + "/js/plugins/ckeditor/";
+    CKEDITOR.config.contentsCss = CKEDITOR.basePath+"contents.css";
 
-        CKEDITOR.basePath = $('meta[name=base]').attr('content') + "/js/plugins/ckeditor/";
-        CKEDITOR.config.contentsCss = CKEDITOR.basePath+"contents.css";
+    var editors = $('textarea.editor');
 
-        var editors = $('textarea.editor');
+    if(editors.length > 0 && typeof CKEDITOR !== "undefined") {
+        $.each(editors, function(){
+            var $this    = $(this),
+                $toolbar = [];
 
-        if(editors.length > 0 && typeof CKEDITOR !== "undefined") {
-            $.each(editors, function(){
-                var $this    = $(this),
-                    $toolbar = [];
+            if(!$this.attr('id')) { $this.attr('id', 'txtRand_' + $.guid++); }
 
-                if(!$this.attr('id')) { $this.attr('id', 'txtRand_' + $.guid++); }
+            $toolbar.push({ name: "clipboard", items: [] });
+            $toolbar.push({ name: "basicstyles", items: [ "Bold", "Italic" ] });
+            $toolbar.push({ name: "paragraph", items: [ "NumberedList", "BulletedList" ] });
+            $toolbar.push({ name: "links", items: [ "Link", "Unlink" ]  });
 
-                if($this.hasClass('simple')){
+            if($this.hasClass('simple')){
+                $toolbar.push({ name: "clipboard", items: [ "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo" ] });
+                $toolbar.push({ name: "style", items: [ "FontSize", "TextColor" ] });
+                $toolbar.push({ name: "paragraph", items: [ "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] });
+                $toolbar.push({ name: "insert", items: [ "Image", "Table" ]});
+            }
 
-                    CKEDITOR.replace($this.attr('id'), {
-                        toolbar: [
-                            { name: "clipboard", items: [ "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo" ] }
-                            ,{ name: "basicstyles", items: [ "Bold", "Italic", "Underline", "Strike", "RemoveFormat" ] }
-                            ,{ name: "paragraph", items: [ "NumberedList", "BulletedList", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] }
-                            ,{ name: "links", items: [ "Link", "Unlink" ]  }
-                        ]
-                    });
-
-                }else{
-
-                    CKEDITOR.replace($this.attr('id'), {
-                        toolbar: [
-                            { name: "document", items: [ "Source" ] }
-                            ,{ name: "clipboard", items: [ "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo" ] }
-                            ,{ name: "basicstyles", items: [ "Bold", "Italic", "Underline", "Strike", "RemoveFormat" ] }
-                            ,{ name: "paragraph", items: [ "NumberedList", "BulletedList", "Blockquote", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] }
-                            ,{ name: "links", items: [ "Link", "Unlink" ]  }
-                            ,{ name: "insert", items: [ "Image", "Table" ]}
-                            ,{ name: "style", items: [ "FontSize", "TextColor", "BGColor" ] }
-                        ]
-                    });
-
-                }
-
-            });
-        }
-
+            CKEDITOR.replace($this.attr('id'), { toolbar: $toolbar });
+        });
     }
 
 

@@ -41,8 +41,8 @@
     visibility: hidden;
 
     &:checked + label {
-      background-color: #43a8eb;
-      border: 1px solid #43a8eb;
+      background-color: $color-base;
+      border: 1px solid $color-base;
 
     }
 

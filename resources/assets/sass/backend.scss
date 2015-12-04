@@ -11,13 +11,20 @@ $bootstrap-sass-asset-helper: true;
 $path-img: '../../../images/admin/';
 
 
+/*
+ * ------------------------------------
+ * Themes
+ * ------------------------------------
+ */
+@import "backend/skins/default";
+
+
 
 /*
  * ------------------------------------
  * Core
  * ------------------------------------
  */
-@import "backend/variables";
 @import "backend/core";
 @import "backend/_fonts";
 

@@ -37,14 +37,21 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label class="control-label required">Nome</label>
+        <div class="form-controls clearfix">
+            <div class="col-lg-12 row">
+                {!! Form::textarea('nome', null, ['class'=>'form-control editor simple']) !!}
+            </div>
+        </div>
+    </div>
+
 </div>
-
-
 
 
 <div class="col-lg-12">
     <br><br>
-    <a href="{!! URL::previous() !!}" class="btn-animate gray mr-r-5">{{trans('admin.btn.voltar')}}</a>
-    <input type="submit" class="btn-animate blue" value="{{trans('admin.btn.cadastrar')}}">
+    <a href="{!! URL::previous() !!}" class="btn-animate mr-r-5">{{trans('admin.btn.voltar')}}</a>
+    <input type="submit" class="btn-animate action" value="{{trans('admin.btn.cadastrar')}}">
 </div>
 

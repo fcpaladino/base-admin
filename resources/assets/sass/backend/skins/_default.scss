@@ -1,0 +1,102 @@
+/*
+ * ------------------------------------
+ * Color
+ * ------------------------------------
+ */
+$color-base: #43a8eb;
+//$color-base: #eb4343;
+
+
+
+
+/*
+ * ------------------------------------
+ * Geral
+ * ------------------------------------
+ */
+$body-bg: #ffffff;
+
+$link-color:       $color-base;
+$link-hover-color: lighten($color-base, 15%);
+
+
+/*
+ * ------------------------------------
+ * Header
+ * ------------------------------------
+ */
+$navbar-bg: $color-base;
+$navbar-bg-hover: darken($color-base, 5%);
+
+
+
+/*
+ * ------------------------------------
+ * Sidebar
+ * ------------------------------------
+ */
+$sidebar-width:         230px;
+$sidebar-color:         #585f69;
+$sidebar-bg:            #fefefe;
+$sidebar-border-bg:     #eeeeee;
+$sidebar-hover-bg:      #f1f2f3;
+
+// Menu
+$sidebar-item-color-active:   $color-base;
+$sidebar-item-bg-active:      #ffffff;
+$sidebar-item-border-active:  $color-base;
+
+// Submenu
+$sidebar-submenu-bg:          #ffffff;
+$sidebar-submenu-color:       #585f69;
+
+
+/*
+ * ------------------------------------
+ * Plugins
+ * ------------------------------------
+ */
+
+
+// Select
+$select-color: $color-base;
+
+// Tags
+$tag-color: $color-base;
+
+
+/*
+ * ------------------------------------
+ * Buttons
+ * ------------------------------------
+ */
+
+// Default
+$button-default-border:        #dbd9d9;
+$button-default-color:         #a0aab2;
+
+$button-default-bg-active:     #fdfdfd;
+$button-default-color-active:  #6a727b;
+
+// Action
+$button-action-border:        darken($color-base, 5%);
+$button-action-color:         darken($color-base, 5%);
+
+$button-action-bg-active:     darken($color-base, 5%);
+$button-action-color-active:  #ffffff;
+
+// Update
+$button-update-border:        #ffab40;
+$button-update-color:         #ffab40;
+
+$button-update-bg-active:     #ffffff;
+$button-update-color-active:  #ffab40;
+
+// Delete
+$button-delete-border:        #F44336;
+$button-delete-color:         #F44336;
+
+$button-delete-bg-active:     #fff;
+$button-delete-color-active:  #F44336;
+
+

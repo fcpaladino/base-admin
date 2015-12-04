@@ -3,13 +3,13 @@
 
 <li class="@if(isset($sidebar['children'])) treeview @endif @if(!empty($active)) active @endif">
 
-    <a href="{{ url($sidebar['slug']) }}" @if(isset($sidebar['children'])) data-icon-active="@if(!empty($active)) fa-folder-o @else fa-folder-open-o @endif" @endif >
+    <a href="{{ url($sidebar['slug']) }}">
 
         <span>{{ $sidebar['name'] }}</span>
 
         @if(isset($sidebar['children']))
 
-            <i class="fa  @if(!empty($active)) fa-angle-down @else fa-angle-left @endif pull-right"></i>
+            <i class="fa  @if(!empty($active)) fa-angle-up @else fa-angle-down @endif pull-right"></i>
             <ul class="treeview-menu @if(!empty($active)) menu-open @endif">
                 @foreach($sidebar['children'] as $sub)
                     @include('backend.partials.sidebar', ['sidebar' => $sub])
